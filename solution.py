@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import scipy as sp
+from statsmodels.stats.weightstats import ztest
 
 chat_id = 6064443932 # Ваш chat ID, не меняйте название переменной
 
@@ -9,4 +9,4 @@ def solution(x, y) -> bool: # Одна или две выборке на вхо�
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
 
-    return sp.stats.mannwhitneyu(x, y).pvalue < 0.09
+    return ztest(x, y, alternative='larger')[1] < 0.09
