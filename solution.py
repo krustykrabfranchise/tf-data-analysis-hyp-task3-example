@@ -8,6 +8,5 @@ def solution(x, y) -> bool: # Одна или две выборке на вхо�
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    
-    stats, pvalue = sp.stats.ttest_ind(x, y, equal_var=False, alternative="greater")
-    return stats > 0 and pvalue < 0.09
+
+    return sp.stats.mannwhitneyu(x, y).pvalue < 0.09
