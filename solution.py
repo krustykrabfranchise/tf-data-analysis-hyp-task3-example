@@ -9,5 +9,5 @@ def solution(x, y) -> bool: # Одна или две выборке на вхо�
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     
-    stats, pvalue = ttest_ind(x, y, equal_var=False, alternative="greater")
+    stats, pvalue = sp.stats.ttest_ind(x, y, equal_var=False, alternative="greater")
     return stats > 0 and pvalue < 0.09
