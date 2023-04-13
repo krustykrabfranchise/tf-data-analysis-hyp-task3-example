@@ -8,4 +8,6 @@ def solution(x, y) -> bool: # Одна или две выборке на вхо�
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    return sp.stats.ttest_ind(x, y, alternative="greater").pvalue < 0.09
+    
+    stats, pvalue = ttest_ind(x, y, equal_var=False, alternative="greater")
+    return stats > 0 and pvalue < 0.09
